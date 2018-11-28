@@ -2,7 +2,8 @@
 #include <cstdio>
 using namespace std;
 
-int main() {
-    printf("Hello, World!");
-    return 0;
+namespace hello_world {
+    string hello() {
+        return "Hello, World!";
+    }
 }
