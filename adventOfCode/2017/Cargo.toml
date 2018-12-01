@@ -1,0 +1,13 @@
+[package]
+name = "adventOfCode2017"
+version = "0.1.0"
+authors = ["dvogt23 <divogt@live.de>"]
+
+[dependencies]
+num = "*"
+itertools = "*"
+regex = "*"
+
+[[bin]]
+name = "aoc2017"
+path = "src/main.rs"
