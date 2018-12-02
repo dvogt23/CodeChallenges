@@ -19,8 +19,6 @@ pub fn part2(input: Vec<String>) -> i32 {
             seen.insert(freq);
         }
     }
-
-    freq
 }
 
 #[cfg(test)]
