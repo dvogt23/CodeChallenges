@@ -6,7 +6,7 @@ authors = ["dvogt23 <divogt@live.de>"]
 [dependencies]
 num = "*"
 itertools = "*"
-regex = "*"
+regex = "1"
 
 [[bin]]
 name = "aoc2018"

@@ -1,3 +1,5 @@
+extern crate regex;
+
 use std::env;
 use std::path::Path;
 use std::fs::File;
@@ -6,6 +8,7 @@ use std::io::BufReader;
 
 mod day1;
 mod day2;
+mod day3;
 
 fn main() {
     // read args
@@ -35,6 +38,10 @@ fn run_day(day: String, inputfile: String) {
         "day2" => {
             let p1 = day2::part1(lines_from_file(inputfile.to_owned()));
             let p2 = day2::part2(lines_from_file(inputfile.to_owned()));
+            println!("Part1: {}\nPart2: {}", p1, p2);
+        },
+        "day3" => {
+            let (p1, p2) = day3::main(lines_from_file(inputfile.to_owned()));
             println!("Part1: {}\nPart2: {}", p1, p2);
         }
         _ => (),
