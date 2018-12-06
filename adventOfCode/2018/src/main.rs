@@ -9,6 +9,8 @@ use std::io::BufReader;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
+mod day5;
 
 fn main() {
     // read args
@@ -42,6 +44,16 @@ fn run_day(day: String, inputfile: String) {
         },
         "day3" => {
             let (p1, p2) = day3::main(lines_from_file(inputfile.to_owned()));
+            println!("Part1: {}\nPart2: {}", p1, p2);
+        },
+        "day4" => {
+            let p1 = day4::part1(lines_from_file(inputfile.to_owned()));
+            let p2 = day4::part2(lines_from_file(inputfile.to_owned()));
+            println!("Part1: {}\nPart2: {}", p1, p2);
+        },
+        "day5" => {
+            let p1 = day5::part1(lines_from_file(inputfile.to_owned()));
+            let p2 = day5::part2(lines_from_file(inputfile.to_owned()));
             println!("Part1: {}\nPart2: {}", p1, p2);
         }
         _ => (),
