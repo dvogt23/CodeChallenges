@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
 
 int main() {
@@ -20,13 +21,13 @@ int main() {
     vector<int> ints(n);
     string input;
     printf("size: %d", sizeof(ints));
-    while(getline(cin, input, ' ')) {
-        //printf("-%s", input.c_str());
-        ints.insert(2);
+    getline(cin, input, ' ');
+    for(auto &i: input.split(' ')) {
+        printf("-%s", i);
     }
 
-    for (it=ints.end(); it<ints.begin(); it--)
-        std::cout << *it << ' ';
+    //for (it=ints.end(); it<ints.begin(); it--)
+        //std::cout << *it << ' ';
 
 
     return 0;
