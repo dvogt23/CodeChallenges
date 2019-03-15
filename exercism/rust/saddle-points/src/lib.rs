@@ -1,20 +1,17 @@
 pub fn find_saddle_points(input: &[Vec<u64>]) -> Vec<(usize, usize)> {
-    let height = input.len();
-    let width = input.first().unwrap().len();
+    let mut saddle_points = vec![];
+    for (r, row) in input.iter().enumerate() {
+        for (c, &col) in row.iter().enumerate() {
+            let max_in_row = row.iter().map(|&d| d).max().unwrap();
+            let min_in_col = input.iter().map(|row| row[c]).min().unwrap();
 
-    for (i, row) in input.iter().enumerate() {
-        let max_in_row = row.iter().max().unwrap();
-        for (j, col) in row.iter().enumerate() {
-            if col == max_in_row {
-                let lowest_in_col = input.iter().map(|row| row.iter().nth(j));
-                println!("low: {:?}", lowest_in_col);
+            println!("min: {} max: {}", min_in_col, max_in_row);
+
+            if col == min_in_col && col == max_in_row {
+                saddle_points.push((r, c));
             }
         }
-        
-        //println!("max {:?} i: {:?}", max_in_row, i);
     }
-    
-    println!("{}, {:?}", height, width);
 
-    vec![(0,0)]
+    saddle_points
 }
