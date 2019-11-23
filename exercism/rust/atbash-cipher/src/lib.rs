@@ -1,17 +1,17 @@
+const alpha: &str = "abcdefghijklmnopqrstuvwxyz";
+
 /// "Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
-    let alpha = "abcdefghijklmnopqrstuvwxyz";
-
     plain
         .to_lowercase()
-        .char_indices()
-        .filter(|c| !c.1.is_whitespace() && c.1.is_alphabetic() || c.1.is_alphanumeric())
-        .filter(|c| c.1.is_ascii())
+        .chars()
+        .filter(|c| !c.is_whitespace() && c.is_alphabetic() || c.is_alphanumeric())
+        .filter(|c| c.is_ascii())
         .map(|c| {
-            if let Some(i) = alpha.char_indices().find(|f| f.1 == c.1) {
+            if let Some(i) = alpha.char_indices().find(|f| f.1 == c) {
                 alpha.chars().nth(25 - i.0).unwrap()
             } else {
-                c.1
+                c
             }
         })
         .collect::<Vec<char>>()
@@ -23,16 +23,14 @@ pub fn encode(plain: &str) -> String {
 
 /// "Decipher" with the Atbash cipher.
 pub fn decode(cipher: &str) -> String {
-    let alpha = "abcdefghijklmnopqrstuvwxyz";
-
     cipher
-        .char_indices()
-        .filter(|c| !c.1.is_whitespace())
+        .chars()
+        .filter(|c| !c.is_whitespace())
         .map(|c| {
-            if let Some(i) = alpha.char_indices().find(|f| f.1 == c.1) {
+            if let Some(i) = alpha.char_indices().find(|f| f.1 == c) {
                 alpha.chars().nth(25 - i.0).unwrap()
             } else {
-                c.1
+                c
             }
         })
         .collect::<String>()

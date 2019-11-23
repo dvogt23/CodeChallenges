@@ -25,7 +25,11 @@ fn is_closed(c: &char) -> bool {
 
 pub fn brackets_are_balanced(string: &str) -> bool {
     let mut list = VecDeque::new();
-    for c in string.chars() {
+    for c in string
+        .chars()
+        .into_iter()
+        .filter(|c| is_open(c) || is_closed(c))
+    {
         if is_open(&c) {
             list.push_front(c);
         }
@@ -42,5 +46,5 @@ pub fn brackets_are_balanced(string: &str) -> bool {
             return false;
         }
     }
-    list.len() == 0
+    list.is_empty()
 }
