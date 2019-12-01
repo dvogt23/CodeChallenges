@@ -12,19 +12,20 @@ pub fn part2(input: Vec<String>) -> f32 {
     input
         .into_iter()
         .map(|mass| {
-            let mass = mass.parse::<f32>().unwrap();
-            let mut tmp = (mass / 3f32).floor() - 2f32;
-            let mut sum = tmp;
-            loop {
-                tmp = (tmp / 3f32).floor() - 2f32;
-                if tmp <= 0f32 {
-                    break;
-                }
-                sum += tmp;
+            let mut mass = mass.parse::<f32>().unwrap();
+            mass = get_fuel(mass);
+            let mut sum = 0f32;
+            while mass > 0f32 {
+                sum += mass;
+                mass = get_fuel(mass);
             }
             sum
         })
         .sum()
+}
+
+fn get_fuel(fuel: f32) -> f32 {
+    (fuel / 3f32).floor() - 2f32
 }
 
 #[cfg(test)]
