@@ -7,6 +7,7 @@ use std::io::BufReader;
 use std::path::Path;
 
 mod day1;
+mod day2;
 
 fn main() {
     // read args
@@ -31,6 +32,11 @@ fn run_day(day: String, inputfile: String) {
         "day1" => {
             let p1 = day1::part1(lines_from_file(inputfile.to_owned()));
             let p2 = day1::part2(lines_from_file(inputfile.to_owned()));
+            println!("Part1: {}\nPart2: {}", p1, p2);
+        }
+        "day2" => {
+            let p1 = day2::part1(lines_from_file(inputfile.to_owned()));
+            let p2 = day2::part2(lines_from_file(inputfile.to_owned()));
             println!("Part1: {}\nPart2: {}", p1, p2);
         }
         _ => (),
