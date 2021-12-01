@@ -4,8 +4,10 @@ module Year2021
       input.lines.map(&:to_i).each_cons(2).reduce(0) { |a, r| r[0] < r[1] ? a + 1 : a }
     end
 
-    def part2(_input)
-      nil
+    def part2(input)
+      input.lines.map(&:to_i).each_cons(3)
+           .map(&:sum)
+           .each_cons(2).reduce(0) { |a, r| r[0] < r[1] ? a + 1 : a }
     end
   end
 end
