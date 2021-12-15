@@ -26,6 +26,6 @@ CN -> C'
 
   it 'solves part2' do
     d = Year2021::Day14.new
-    expect(d.part2(input)).to eq(2188189693529)
+    expect(d.part2(input)).to eq(2_188_189_693_529)
   end
 end
